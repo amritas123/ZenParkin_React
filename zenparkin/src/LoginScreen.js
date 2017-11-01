@@ -4,11 +4,11 @@ import {
   Button,
   Image,
   Linking,
-  Navigator,
   Platform,
   StyleSheet,
   Text,
   TouchableHighlight,
+  TouchableOpacity,
   View,
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
@@ -86,13 +86,7 @@ class MyLoginScreen extends React.Component {
             { user
               ? // Show user info if already logged in
               //navigate('HomeScreen',{ user: user })
-              <Navigator
-                
-                renderScene={(route, navigator) => {
-                  <Homescreen title={route.title} />
-                }}
-              />
-
+              <TouchableOpacity onLayout={() => {navigate('HomeScreen',{ user: user })} } />
               : // Show Please log in message if not
                 <View style={styles.content}>
                   <Text style={styles.header}>

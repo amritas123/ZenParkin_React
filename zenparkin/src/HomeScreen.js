@@ -18,15 +18,17 @@ console.log('inside home screen');
 export default class HomeScreen extends React.Component {
 
   render() {
-    //const { params } = this.props.navigation.state;
-    //var username = params.user.name.split(' ')[0].trim();
-    //console.log("*** username = ", username);
-
+    const { params } = this.props.navigation.state;
+    var username = params.user.name.split(' ')[0].trim();
+    console.log("*** username = ", username);
     return (
-      <View>		
-        <Text>
-          Welcome 
+      <View style={styles.content}>		
+        <Text style={styles.header}>
+          Welcome {username}!
         </Text>
+        <View style={styles.avatar}>
+          <Image source={{ uri: params.user.avatar }} style={styles.avatarImage} />
+        </View>
       </View>
     );
   }
