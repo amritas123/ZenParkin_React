@@ -15,13 +15,22 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 console.log('inside home screen');
 
-const HomeScreen = ({ navigation }) => (		 
-  <View>		
-    <Text>Chat with</Text>
-  </View>		
-);
+export default class HomeScreen extends React.Component {
 
-export default HomeScreen;
+  render() {
+    //const { params } = this.props.navigation.state;
+    //var username = params.user.name.split(' ')[0].trim();
+    //console.log("*** username = ", username);
+
+    return (
+      <View>		
+        <Text>
+          Welcome 
+        </Text>
+      </View>
+    );
+  }
+}
 
 const styles = StyleSheet.create({
   container: {

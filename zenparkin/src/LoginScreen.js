@@ -4,6 +4,7 @@ import {
   Button,
   Image,
   Linking,
+  Navigator,
   Platform,
   StyleSheet,
   Text,
@@ -84,7 +85,14 @@ class MyLoginScreen extends React.Component {
           <View style={styles.container}>
             { user
               ? // Show user info if already logged in
-              navigate('HomeScreen',{ user: user })
+              //navigate('HomeScreen',{ user: user })
+              <Navigator
+                
+                renderScene={(route, navigator) => {
+                  <Homescreen title={route.title} />
+                }}
+              />
+
               : // Show Please log in message if not
                 <View style={styles.content}>
                   <Text style={styles.header}>
