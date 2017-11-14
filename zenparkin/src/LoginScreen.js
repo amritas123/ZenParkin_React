@@ -7,6 +7,7 @@ import {
   Platform,
   StyleSheet,
   Text,
+  TextInput,
   TouchableHighlight,
   TouchableOpacity,
   View,
@@ -98,6 +99,24 @@ class MyLoginScreen extends React.Component {
                   </Text>
                 </View>
             }
+            <View style={styles.otp}>
+              <Text style={styles.text_otp}>
+                Signin using OTP
+              </Text>
+              <TextInput
+                style={styles.input}
+                onChangeText={(text) => this.setState({text})}
+                placeholder="+1 650-761-2184"
+              />
+              <Icon.Button
+                name="chevron-right"
+                size={15}
+                backgroundColor="#3b5998"
+                onPress={this.loginWithFacebook}
+                {...iconStyles}
+              >
+              </Icon.Button>
+            </View>
             {/* Login buttons */}
             <View style={styles.buttons}>
               <Icon.Button
@@ -145,54 +164,51 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       backgroundColor: 'powderblue',
     },
-    welcome: {
-      fontSize: 20,
-      textAlign: 'center',
-      margin: 10,
-    },
-    instructions: {
-      textAlign: 'center',
-      color: '#333333',
-      marginBottom: 20,
-    },
-    button: {
-      width: 200,
-      alignItems: 'center',
-      backgroundColor: '#ed42d0',
-      borderRadius: 5,
-    },
-    buttonText: {
-      padding: 20,
-      fontSize: 20,
-      color: 'white'
-    },
     content: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
       },
-      avatar: {
-        margin: 20,
-      },
-      avatarImage: {
-        borderRadius: 50,
-        height: 100,
-        width: 100,
-      },
-      header: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-      },
-      text: {
-        textAlign: 'center',
-        color: '#333',
-        marginBottom: 5,
-      },
-      buttons: {
-        justifyContent: 'space-between',
-        flexDirection: 'row',
-        margin: 20,
-        marginBottom: 30,
-      },
+    avatar: {
+      margin: 20,
+    },
+    avatarImage: {
+      borderRadius: 50,
+      height: 100,
+      width: 100,
+    },
+    header: {
+      fontSize: 20,
+      textAlign: 'center',
+      margin: 10,
+    },
+    text: {
+      textAlign: 'center',
+      color: '#333',
+      marginBottom: 5,
+    },
+    buttons: {
+      justifyContent: 'space-between',
+      flexDirection: 'row',
+      margin: 20,
+      marginBottom: 30,
+    },
+    input: {
+      textAlign: 'center',
+      borderColor: 'gray', 
+      borderWidth: 1,
+      height: 40,
+    },
+    otp: {
+      justifyContent: 'space-between',
+      flexDirection: 'row',
+      alignItems: 'center',
+      height: 100,
+    },
+    text_otp: {
+      flexDirection: 'row',
+      textAlign: 'center',
+      color: '#333',
+      marginBottom: 5,
+    },
 });

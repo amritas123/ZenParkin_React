@@ -12,23 +12,40 @@ import {
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import Icon from 'react-native-vector-icons/FontAwesome';
+var MapView = require('react-native-maps');
 
 console.log('inside home screen');
 
 export default class HomeScreen extends React.Component {
+  constructor(props) {
+    console.log("in constructor");
+    super(props);
+    this.state = {
+      region: {
+        latitude: 17.6868,
+        longitude: 83.2185,
+        latitudeDelta: 0.02,
+        longitudeDelta: 0.02,
+      },
+      markers: [],
+    };
+  }
+
+  onRegionChange(region) {
+    this.setState({ region });
+  }
 
   render() {
     const { params } = this.props.navigation.state;
     var username = params.user.name.split(' ')[0].trim();
     console.log("*** username = ", username);
+    console.log("*** region = ", this.state.region);
+
     return (
       <View style={styles.content}>		
-        <Text style={styles.header}>
-          Welcome {username}!
-        </Text>
-        <View style={styles.avatar}>
-          <Image source={{ uri: params.user.avatar }} style={styles.avatarImage} />
-        </View>
+        <MapView
+          region={this.state.region}
+        />
       </View>
     );
   }
